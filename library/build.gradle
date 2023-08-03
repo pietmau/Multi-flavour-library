@@ -75,8 +75,8 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            release(MavenPublication) {
-                from components.release
+            flavourARelease(MavenPublication) {
+                from components.flavourARelease
 
                 groupId = 'com.github.pietrantuono'
                 artifactId = 'm-m-lib'
