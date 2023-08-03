@@ -75,12 +75,10 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            flavourARelease(MavenPublication) {
-                from components.flavourARelease
-
+            library(MavenPublication) {
                 groupId = 'com.github.pietrantuono'
-                artifactId = 'm-m-lib'
-                version = '1.0.1'
+                artifactId = 'multi-flavour-lib'
+                version = '1.0.3'
             }
         }
     }
