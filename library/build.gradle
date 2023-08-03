@@ -75,18 +75,32 @@ dependencies {
 afterEvaluate {
     publishing {
         publications {
-            flavourARelease(MavenPublication) {
-                from components.flavourARelease
-                groupId 'com.pietrantuono'
-                artifactId 'fancy-library-a'
-                version '1.0.0'
-            }
-            flavourBRelease(MavenPublication) {
-                from components.flavourBRelease
-                groupId 'com.pietrantuono'
-                artifactId 'fancy-library-b'
-                version '1.0.0'
+            release(MavenPublication) {
+                from components.release
+
+                groupId = 'com.github.pietrantuono'
+                artifactId = 'm-m-lib'
+                version = '1.0.0'
             }
         }
     }
 }
+
+//afterEvaluate {
+//    publishing {
+//        publications {
+//            flavourARelease(MavenPublication) {
+//                from components.flavourARelease
+//                groupId 'com.pietrantuono'
+//                artifactId 'fancy-library-a'
+//                version '1.0.0'
+//            }
+//            flavourBRelease(MavenPublication) {
+//                from components.flavourBRelease
+//                groupId 'com.pietrantuono'
+//                artifactId 'fancy-library-b'
+//                version '1.0.0'
+//            }
+//        }
+//    }
+//}
