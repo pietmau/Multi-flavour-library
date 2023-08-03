@@ -1,6 +1,8 @@
 plugins {
     id 'com.android.library'
     id 'org.jetbrains.kotlin.android'
+    id 'maven-publish'
+
 }
 
 android {
@@ -41,6 +43,13 @@ android {
         flavourA {}
         flavourB {}
     }
+
+    publishing {
+        singleVariant("release") {
+            withSourcesJar()
+            withJavadocJar()
+        }
+    }
 }
 
 dependencies {
@@ -61,4 +70,23 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+}
+
+afterEvaluate {
+    publishing {
+        publications {
+            flavourARelease(MavenPublication) {
+                from components.flavourARelease
+                groupId 'com.pietrantuono'
+                artifactId 'fancy-library-a'
+                version '1.0.0'
+            }
+            flavourBRelease(MavenPublication) {
+                from components.flavourBRelease
+                groupId 'com.pietrantuono'
+                artifactId 'fancy-library-b'
+                version '1.0.0'
+            }
+        }
+    }
 }
