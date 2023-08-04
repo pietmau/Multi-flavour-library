@@ -79,13 +79,13 @@ afterEvaluate {
                 from components.flavourARelease
                 groupId = 'com.github.pietrantuono'
                 artifactId = 'lib-A'
-                version = '1.0.4'
+                version = '1.1.0'
             }
             flavourBRelease(MavenPublication) {
                 from components.flavourBRelease
                 groupId = 'com.github.pietrantuono'
                 artifactId = 'lib-B'
-                version = '1.0.4'
+                version = '1.1.0'
             }
         }
     }
